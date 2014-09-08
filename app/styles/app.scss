@@ -1,0 +1,42 @@
+$fa-font-path: "fonts" !default;
+
+$bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "/fonts/") !default;
+
+//$gray-darker:            lighten(#000, 13.5%) !default; // #222
+//$gray-dark:              lighten(#000, 20%) !default;   // #333
+//$gray:                   lighten(#000, 33.5%) !default; // #555
+//$gray-light:             lighten(#000, 46.7%) !default; // #777
+//$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
+$brand-primary:         #51A3DC !default;
+$brand-success:         #79BE37 !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+$navbar-height: 48px;
+$navbar-border-radius: 0;
+$navbar-inverse-bg: #303442;
+$navbar-inverse-link-color: #BABABA;
+
+$carousel-control-color: #777;
+$carousel-indicator-border-color: #999;
+$carousel-indicator-active-bg: #ddd;
+
+@import "bower_components/fontawesome/scss/font-awesome";
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/theme";
+
+.carousel-control {
+  &.right {
+    background: transparent;
+  }
+  &.left {
+    background: transparent;
+  }
+}
+
+.carousel-indicators {
+  bottom: -42px;
+}

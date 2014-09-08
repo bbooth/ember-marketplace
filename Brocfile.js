@@ -1,5 +1,8 @@
 /* global require, module */
 
+var fs = require('fs');
+var pickFiles = require('broccoli-static-compiler');
+var mergeTrees = require('broccoli-merge-trees');
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp();
@@ -17,4 +20,36 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = app.toTree();
+
+var bootstrapPath = 'bower_components/bootstrap-sass-official/assets/';
+var javascriptsPath = 'bower_components/ember-addons.bs_for_ember/dist/js/';
+var jsFiles = fs.readdirSync(javascriptsPath);
+
+var fontTree = pickFiles('bower_components/fontawesome/fonts', {
+    srcDir: '/',
+    files: ['*'],
+    destDir: '/assets/fonts'
+});
+
+// Import css
+//app.import(bootstrapPath + 'css/bootstrap-theme.css');
+//app.import(bootstrapPath + 'css/bootstrap.css');
+app.import('bower_components/ember-addons.bs_for_ember/dist/css/bs-growl-notifications.min.css');
+
+// Import javascript files
+app.import(javascriptsPath + 'bs-core.max.js'); // Import bs-core first
+
+jsFiles.forEach(function (file) {
+    var fileName = file.split('.')[0];
+    app.import(javascriptsPath + fileName + '.max.js');
+});
+
+app.import(bootstrapPath + '/javascripts/bootstrap.js');
+
+// Import glyphicons
+app.import(bootstrapPath + 'fonts/bootstrap/glyphicons-halflings-regular.eot', { destDir: '/fonts' });
+app.import(bootstrapPath + 'fonts/bootstrap/glyphicons-halflings-regular.svg', { destDir: '/fonts' });
+app.import(bootstrapPath + 'fonts/bootstrap/glyphicons-halflings-regular.ttf', { destDir: '/fonts' });
+app.import(bootstrapPath + 'fonts/bootstrap/glyphicons-halflings-regular.woff', { destDir: '/fonts' });
+
+module.exports = mergeTrees([app.toTree(), fontTree]);

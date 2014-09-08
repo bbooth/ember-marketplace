@@ -1,72 +1,22 @@
-<div id="carousel-featured" class="carousel slide" data-ride="carousel">
-    <div class="row">
-    <div class="col-xs-6">
-    <h4>Featured</h4>
-</div>
-<div class="col-xs-6">
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-featured" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-</a>
+<div {{bind-attr id=divId}} class="carousel slide" data-wrap=true">
+    <h4>
+        {{title}}
+        <small class="indicators">
+            <a href="#" {{action 'previous'}}><i class="fa fa-chevron-left"></i></a>
+            {{#each listing in listings}}
+                <a href="#" {{action 'navigate' _view.contentIndex}}><i class="indicator-item fa fa-circle-thin"></i></a>
+            {{/each}}
+            <a href="#" {{action 'next'}}><i class="fa fa-chevron-right"></i></a>
+        </small>
+    </h4>
 
-    <!-- Indicators -->
-<ol class="carousel-indicators">
-    <li data-target="#carousel-featured" data-slide-to="0" class="active">1</li>
-<li data-target="#carousel-featured" data-slide-to="1">2</li>
-<li data-target="#carousel-featured" data-slide-to="2">3</li>
-</ol>
-
-<a class="right carousel-control" href="#carousel-featured" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-</a>
-</div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-    <div class="item active">
-    <div class="row">
-    <div class="col-xs-5">
-    <img class="img-responsive" src="http://placehold.it/100x100">
+        {{#each listing in listings}}
+            <div class="item">
+                {{listing-card listing=listing}}
+            </div>
+        {{/each}}
     </div>
-<div class="col-xs-7">
-    <h4>iMember360</h4>
 
-<p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-</p>
-</div>
-</div>
-<div class="row">
-    <div class="col-xs-8">
-    <h2>
-    $19.95 /
-<small>mo.</small>
-</h2>
-</div>
-<div class="col-xs-4 pull-right">
-    <button type="button" class="btn btn-primary">view</button>
-</div>
-</div>
-<div class="row">
-    <div class="col-xs-6">
-    <p>User Rating</p>
-</div>
-<div class="col-xs-6">
-    <i class="fa fa-star pull-right"></i>
-<i class="fa fa-star pull-right"></i>
-<i class="fa fa-star pull-right"></i>
-<i class="fa fa-star pull-right"></i>
-<i class="fa fa-star pull-right"></i>
-</div>
-</div>
-
-</div>
-</div>
-
-
-
-</div>
-</div>
 </div>

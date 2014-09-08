@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <h2>Search the Marketplace</h2>
+
+    <h1>What are you looking for?</h1>
+
+    <div class="input-group input-group-lg">
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">All <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Apps</a></li>
+                <li><a href="#">Campaigns</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </div>
+        <input type="search" class="form-control" placeholder="Apps, Campaigns, and Services...">
+
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-primary">Go</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        {{listing-carousel title='Featured' listings=featured}}
+    </div>
+    <div class="col-xs-4">
+        {{listing-carousel title='Popular' listings=popular}}
+    </div>
+    <div class="col-xs-4">
+        {{listing-carousel title='Newest' listings=newest}}
+    </div>
+</div>

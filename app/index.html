@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Marketplace</title>
@@ -9,16 +9,18 @@
 
     {{BASE_TAG}}
 
-    <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/marketplace.css">
-  </head>
-  <body>
-    <script src="assets/vendor.js"></script>
-    <script src="assets/marketplace.js"></script>
-    <script>
-      window.MarketplaceENV = require('marketplace/config/environment')['default'];
-      window.EmberENV = window.MarketplaceENV.EmberENV;
-      window.Marketplace = require('marketplace/app')['default'].create(MarketplaceENV.APP);
-    </script>
-  </body>
+    <link rel="stylesheet" href="assets/vendor.css">
+    <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">-->
+
+</head>
+<body>
+<script src="assets/vendor.js"></script>
+<script src="assets/marketplace.js"></script>
+<script>
+    window.MarketplaceENV = require('marketplace/config/environment')['default'];
+    window.EmberENV = window.MarketplaceENV.EmberENV;
+    window.Marketplace = require('marketplace/app')['default'].create(MarketplaceENV.APP);
+</script>
+</body>
 </html>
